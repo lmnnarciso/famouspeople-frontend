@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./components/Button";
 import { Card } from "./components/Card";
 import Navigation from "./components/Navigation";
 import SearchResultItem from "./components/SearchResultItem";
 import Select from "react-select";
+import SmallCard from "./components/SmallCard";
 
 const options = [
   { value: "actor-1", label: "Edward Norton" },
@@ -12,8 +13,11 @@ const options = [
 ];
 
 function App() {
+  let [dataList, setDataList] = useState([]);
+  let [selectedPerson, setSelectedPerson] = useState(null);
+  console.log("process.env", process.env.REACT_APP_NOT_SECRET_CODE);
   return (
-    <div class="w-full">
+    <div class="w-full mt-8 ml-8">
       {/* <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4"> */}
       {/* <div class="flex flex-wrap">
           <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 bg-gray-500"></div>
@@ -35,6 +39,14 @@ function App() {
       </div>
       {/* <div className="container"> */}
       <Navigation />
+      <div class="flex mb-4 ml-64 text-center">
+        <SmallCard />
+        <SmallCard />
+        <SmallCard />
+        <SmallCard />
+        <SmallCard />
+      </div>
+      <hr className="-ml-8 mb-8" />
       {/* </div> */}
       <div class="flex mb-4">
         <div class="w-1/2">
@@ -43,9 +55,7 @@ function App() {
           <SearchResultItem />
           <SearchResultItem />
         </div>
-        <div class="w-1/2">
-          <Card />
-        </div>
+        <div class="w-1/2">{selectedPerson !== null && <Card />}</div>
       </div>
       {/* <div class="flex mx-auto w-full">
         <div className="mx-auto px-4">

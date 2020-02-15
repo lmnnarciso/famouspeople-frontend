@@ -1,8 +1,11 @@
 import React from "react";
 
-export const Card = () => {
+export const Card = props => {
+  let { margin = "", height = "" } = props;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div
+      className={`max-w-sm rounded overflow-hidden shadow-lg ${margin} ${height}`}
+    >
       <img
         className="w-full"
         src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com"

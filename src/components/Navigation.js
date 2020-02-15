@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <div class="flex mb-4 mx-auto">
+    <div class="flex mb-4 mr-8 mt-8">
       <ul class="flex w-full border-b">
         <li class="-mb-px mr-1 ml-64">
           <a
