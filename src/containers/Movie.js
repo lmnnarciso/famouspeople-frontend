@@ -11,7 +11,7 @@ const options = [
   { value: "actor-3", label: "Brad Pitt" }
 ];
 
-function Movie() {
+function Movie(props) {
   return (
     <div>
       <Box mt="24">

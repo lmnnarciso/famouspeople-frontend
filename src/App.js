@@ -5,12 +5,14 @@ import {
   ColorModeProvider,
   useColorMode,
   Button,
-  theme
+  theme,
+  useTheme
 } from "@chakra-ui/core";
-// import customTheme from "./customTheme";
+import customTheme from "./darktheme";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./containers/Home";
 import Movie from "./containers/Movie";
+import Test from "./containers/Test";
 
 function ColorModeExample() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -29,26 +31,29 @@ function App() {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = { light: "red.500", dark: "red.200" };
   const color = { light: "white", dark: "gray.800" };
-
+  console.log("theme diff", customTheme);
   return (
     <ThemeProvider theme={theme}>
       <CSSReset />
       <ColorModeProvider>
-        <ColorModeExample />
+        {/* <ColorModeExample /> */}
         <Router>
           <div>
-            <nav>
+            {/* <nav>
               <ul>
                 <li>
                   <Link to="/">Home</Link>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/movie/:id">
                 <Movie />
+              </Route>
+              <Route path="/test">
+                <Test />
               </Route>
               <Route path="/">
                 <Home />
