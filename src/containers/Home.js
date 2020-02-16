@@ -45,7 +45,7 @@ function Home() {
       });
     axios
       .get(
-        `http://api.themoviedb.org/3/search/person?api_key=758823861978bf8eb5c5684636768527&query=${searchQuery}`
+        `https://api.themoviedb.org/3/search/person?api_key=758823861978bf8eb5c5684636768527&query=${searchQuery}`
       )
       .then(res => {
         console.log(res);
